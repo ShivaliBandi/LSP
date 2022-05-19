@@ -26,10 +26,11 @@ int main(int argc,char ** argv)
     while((de=readdir(dr))!=NULL)
     {
         printf("Directory Name:%s\n",de->d_name);
-        printf("Directory number:%ld\n",de->d_ino);
-        printf("Directory Offset:%ld\n",de->d_off);
-        printf("Directory Type:%d\n",de->d_type);
-        printf("Directory reclen:%d\n",de->d_reclen);
+        if(de->d_type==4)
+        printf("Directory Type:Directory\n");
+        else if(de->d_type==8)
+        printf("Directory Type:File");
+   
 
     }
     
