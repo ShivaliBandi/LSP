@@ -7,6 +7,11 @@ int main(int argc,char **argv)
     int fdSourceFile,fdDestinationfile,icount=0;
     fdSourceFile=open(argv[1],O_RDONLY);
     fdDestinationfile=open(argv[2],O_RDWR | O_CREAT,0777);
+    if(fdSourceFile==-1 || fdDestinationfile==-1)
+    {
+        printf("ERROR:Unable to open or create file");
+        exit(0);
+    }
     while((icount=read(fdSourceFile,buffer,sizeof(buffer)))!=0)
     {
         if(strlen(buffer)==1024)
