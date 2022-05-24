@@ -10,3 +10,5 @@
 #include <time.h>
 #include <sys/types.h>
 #include<dirent.h>
+#define true 1
+#define false 0
