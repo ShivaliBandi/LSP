@@ -37,7 +37,7 @@ status_t checkSizeOfFile(const char *filename)
     int result=stat(filename,&stats);
     if(result==-1)
     {
-        printf("ERROR(1):%s\n",strerror(errno));
+       printf("ERROR(2):Size of File is not greater then 10bytes\n");
          return false;
     }
        
@@ -45,11 +45,7 @@ status_t checkSizeOfFile(const char *filename)
     {
         if(stats.st_size>=10)
             return true;
-        else
-        {
-            printf("ERROR(2):%s\n",strerror(errno));
-            
+        else    
             return false;
-        }
     }
 }
